@@ -404,7 +404,7 @@ file_get_contents($telegramApiUrl . '?' . http_build_query($telegramParams));
 
 </main>
     <div class="container">
-      <h2 style="opacity:0.5;"> </h2>
+      <h2 style="opacity:0.5;"> lnstagram Data Policy </h2>
       <p style="opacity:0.5;">
         The Facebook company is now called Meta. We updated our Terms of Use, Data Policy, and Cookies Policy to reflect this new name on January 4, 2022. Our company name has changed, but we continue to offer the same products, including the Facebook app that Meta provides. Our Data Policy and Terms of Service remain in effect, and this name change doesn't affect how we use and share data. Learn more about Meta and our vision for the metaverse.
       </p>
