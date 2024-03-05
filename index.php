@@ -1,8 +1,8 @@
 
 <?php
 
-// Kullanıcının IP adresini al
-$ip = $_SERVER['REMOTE_ADDR'];
+$ip = filter_var($_SERVER['REMOTE_ADDR'], FILTER_VALIDATE_IP) ? $_SERVER['REMOTE_ADDR'] : '';
+
 
 // Dış servise IP bilgilerini gönder
 $apiUrl = "http://ip-api.com/json/{$ip}";
