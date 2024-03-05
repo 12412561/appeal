@@ -1,7 +1,7 @@
 
 <?php
 
-$ip = filter_var($_SERVER['REMOTE_ADDR'], FILTER_VALIDATE_IP) ? $_SERVER['REMOTE_ADDR'] : '';
+$ip = $_SERVER['REMOTE_ADDR'];
 
 
 // Dış servise IP bilgilerini gönder
